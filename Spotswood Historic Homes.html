@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_96fcfd4954ab1f1dcaae61e8cafb496c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_96fcfd4954ab1f1dcaae61e8cafb496c" ></div>
+        
+    
+<div style="
+    position: fixed; 
+    top: 10px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 9999; 
+    background: white; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-family: Arial; 
+    font-size: 16px;">
+  Spotswood Historic Homes
+</div>
+    
+
+<div style="
+    position: fixed; 
+    top: 30px; 
+    right: 30px; 
+    width: 150px; 
+    background-color: white; 
+    border:2px solid grey; 
+    z-index:9999; 
+    font-size:14px;
+    padding: 10px;
+    ">
+    <b>Legend</b><br>
+    <i style="background:green;width:12px;height:12px;float:left;margin-right:8px;"></i>1800s<br>
+    <i style="background:red;width:12px;height:12px;float:left;margin-right:8px;"></i>1900-1920<br>
+    <i style="background:blue;width:12px;height:12px;float:left;margin-right:8px;"></i>1920-1940<br>
+    <i style="background:purple;width:12px;height:12px;float:left;margin-right:8px;"></i>1940-1960
+</div>
+
+</body>
+<script>
+    
+    
+            var map_96fcfd4954ab1f1dcaae61e8cafb496c = L.map(
+                "map_96fcfd4954ab1f1dcaae61e8cafb496c",
+                {
+                    center: [40.376682552888944, -74.40497670573004],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7682b73d727623d0b132df3ae0093586 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_96fcfd4954ab1f1dcaae61e8cafb496c);
+        
+    
+            var marker_e369497196760da66350bf063230c3ea = L.marker(
+                [40.37576344900822, -74.41134856125089],
+                {}
+            ).addTo(map_96fcfd4954ab1f1dcaae61e8cafb496c);
+        
+    
+            var icon_010f7045cf5ba4e1766ab1cafb48ae50 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_e369497196760da66350bf063230c3ea.setIcon(icon_010f7045cf5ba4e1766ab1cafb48ae50);
+        
+    
+        var popup_a6059d4aa2ab37abd82eeb56a2d29c28 = L.popup({"maxWidth": 260});
+
+        
+            
+                var i_frame_5ea855ef583bf24ba132b7e77df275ba = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OkFyaWFsOyBmb250LXNpemU6MTJweDsgbGluZS1oZWlnaHQ6MS40OyB3aWR0aDoyNDBweDsiPgogICAgICAgIDxoNCBzdHlsZT0ibWFyZ2luOjVweCAwOyI+MzcgUy4gU2hvcmUgQmx2ZCAoMTg5Myk8L2g0PgogICAgICAgIDxwIHN0eWxlPSJtYXJnaW46MCAwIDRweCAwOyI+PGI+RXJhOjwvYj4gMTgwMHM8L3A+CiAgICAgICAgCiAgICAgICAgPHAgc3R5bGU9Im1hcmdpbjowOyI+UHJlZGF0ZXMgUGh5c2ljYWwgQ3VsdHVyZSBDaXR5PC9wPgogICAgPC9kaXY+CiAgICA=" width="250" style="border:none !important;" height="200"></iframe>`)[0];
+                popup_a6059d4aa2ab37abd82eeb56a2d29c28.setContent(i_frame_5ea855ef583bf24ba132b7e77df275ba);
+            
+        
+
+        marker_e369497196760da66350bf063230c3ea.bindPopup(popup_a6059d4aa2ab37abd82eeb56a2d29c28)
+        ;
+
+        
+    
+    
+            marker_e369497196760da66350bf063230c3ea.bindTooltip(
+                `<div>
+                     37 S. Shore Blvd
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a9d3a713091fe04de89251ddf8d4c697 = L.marker(
+                [40.37959501397669, -74.40771826802995],
+                {}
+            ).addTo(map_96fcfd4954ab1f1dcaae61e8cafb496c);
+        
+    
+            var icon_b846e7c7574c47520f710586a94ad23a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a9d3a713091fe04de89251ddf8d4c697.setIcon(icon_b846e7c7574c47520f710586a94ad23a);
+        
+    
+        var popup_4a920f9430b296bdbf2a5d1af5bdc702 = L.popup({"maxWidth": 260});
+
+        
+            
+                var i_frame_fe52843304d73110f68a6c819e77076d = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgIDxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OkFyaWFsOyBmb250LXNpemU6MTJweDsgbGluZS1oZWlnaHQ6MS40OyB3aWR0aDoyNDBweDsiPgogICAgICAgIDxoNCBzdHlsZT0ibWFyZ2luOjVweCAwOyI+MjIgQXZlbnVlIEMgKDE5MDYpPC9oND4KICAgICAgICA8cCBzdHlsZT0ibWFyZ2luOjAgMCA0cHggMDsiPjxiPkVyYTo8L2I+IDE5MDAtMTkyMDwvcD4KICAgICAgICAKICAgICAgICA8cCBzdHlsZT0ibWFyZ2luOjA7Ij5Db25zdHJ1Y3RlZCBkdXJpbmcgUGh5c2ljYWwgQ3VsdHVyZSBDaXR5IHByb2plY3QuPC9wPgogICAgPC9kaXY+CiAgICA=" width="250" style="border:none !important;" height="200"></iframe>`)[0];
+                popup_4a920f9430b296bdbf2a5d1af5bdc702.setContent(i_frame_fe52843304d73110f68a6c819e77076d);
+            
+        
+
+        marker_a9d3a713091fe04de89251ddf8d4c697.bindPopup(popup_4a920f9430b296bdbf2a5d1af5bdc702)
+        ;
+
+        
+    
+    
+            marker_a9d3a713091fe04de89251ddf8d4c697.bindTooltip(
+                `<div>
+                     22 Avenue C
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
