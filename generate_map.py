@@ -232,12 +232,17 @@ def build_html() -> str:
     markers_json = json.dumps(MARKERS, ensure_ascii=False, indent=2)
     era_styles_json = json.dumps(ERA_STYLES, ensure_ascii=False, indent=2)
     return f"""<!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-    <meta charset=\"utf-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Spotswood Historic Homes</title>
-    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css\">\n    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <style>
         :root {{
             color-scheme: light;
         }}
@@ -251,6 +256,8 @@ def build_html() -> str:
         #map {{
             position: absolute;
             inset: 0;
+            width: 100%;
+            height: 100%;
         }}
         .map-header {{
             position: fixed;
@@ -267,6 +274,10 @@ def build_html() -> str:
             font-weight: 600;
             letter-spacing: 0.02em;
             text-align: center;
+            pointer-events: none;
+        }}
+        .map-header span {{
+            pointer-events: auto;
         }}
         .leaflet-container {{
             font-size: 15px;
@@ -276,6 +287,40 @@ def build_html() -> str:
             background: rgba(255, 255, 255, 0.85);
             border-radius: 10px 0 0 0;
             padding: 4px 8px;
+        }}
+        .map-legend .legend-card {{
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 14px;
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.2);
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            padding: 12px 16px;
+            min-width: 150px;
+            font-size: 0.9rem;
+        }}
+        .map-legend h4 {{
+            margin: 0 0 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #111827;
+        }}
+        .map-legend ul {{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 6px;
+        }}
+        .map-legend li {{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1f2933;
+        }}
+        .map-legend .swatch {{
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.2);
         }}
         .leaflet-control-layers {{
             background: rgba(255, 255, 255, 0.95);
@@ -357,75 +402,109 @@ def build_html() -> str:
                 max-width: calc(100vw - 64px);
                 padding: 16px 18px 18px;
             }}
+            .map-legend .legend-card {{
+                min-width: 0;
+                width: calc(100vw - 48px);
+            }}
         }}
     </style>
 </head>
 <body>
-    <div id=\"map\" role=\"region\" aria-label=\"Spotswood historic homes map\"></div>
-    <div class=\"map-header\">Spotswood Historic Homes</div>
+    <div id="map" role="region" aria-label="Spotswood historic homes map"></div>
+    <div class="map-header"><span>Spotswood Historic Homes</span></div>
 
-    <script src=\"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js\"></script>\n    <script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+    <script>
         const markers = {markers_json};
         const eraStyles = {era_styles_json};
 
-        const map = L.map('map', {{ zoomControl: true, preferCanvas: false }});
-        const baseLayer = L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+        const map = L.map('map', { zoomControl: false, preferCanvas: false });
+        const baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: 'Data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-        }}).addTo(map);
+        }).addTo(map);
 
-        const clusters = {{}};
-        const overlays = {{}};
-        Object.entries(eraStyles).forEach(([era, style]) => {{
-            const cluster = L.markerClusterGroup({{
+        const clusters = {};
+        const overlays = {};
+        Object.entries(eraStyles).forEach(([era, style]) => {
+            const cluster = L.markerClusterGroup({
                 disableClusteringAtZoom: 19,
                 spiderfyOnMaxZoom: true,
                 showCoverageOnHover: false
-            }});
+            });
             clusters[era] = cluster;
-            overlays[`<span style="color:${{style.color}}; font-weight:600;">${{style.display}}</span>`] = cluster;
+            overlays[`<span style="color:${style.color}; font-weight:600;">${style.display}</span>`] = cluster;
             cluster.addTo(map);
-        }});
+        });
 
         const bounds = L.latLngBounds();
-        const fallbackStyle = {{ color: 'cadetblue', display: 'Other' }};
+        const fallbackStyle = { color: 'cadetblue', display: 'Other' };
 
-        markers.forEach((marker) => {{
+        markers.forEach((marker) => {
             const style = eraStyles[marker.era] || fallbackStyle;
-            const icon = L.AwesomeMarkers.icon({{
+            const icon = L.AwesomeMarkers.icon({
                 prefix: 'fa',
                 icon: marker.icon || 'landmark',
                 markerColor: style.color || fallbackStyle.color,
                 iconColor: 'white',
                 extraClasses: 'fa-rotate-0'
-            }});
+            });
 
             const description = marker.description
-                ? `<p class="popup-description">${{marker.description}}</p>`
+                ? `<p class="popup-description">${marker.description}</p>`
                 : '';
             const image = marker.image
-                ? `<div class="popup-image"><img src="${{marker.image}}" alt="${{marker.title}}"></div>`
+                ? `<div class="popup-image"><img src="${marker.image}" alt="${marker.title}"></div>`
                 : '';
             const popupHtml = `
                 <div class="popup-card">
                     <div class="popup-header">
-                        <h3>${{marker.title}}</h3>
-                        <p class="popup-era">Era: ${{marker.era}}</p>
+                        <h3>${marker.title}</h3>
+                        <p class="popup-era">Era: ${marker.era}</p>
                     </div>
-                    ${{description}}
-                    ${{image}}
+                    ${description}
+                    ${image}
                 </div>
             `;
 
-            L.marker([marker.lat, marker.lon], {{ icon }})
-                .bindPopup(popupHtml, {{ maxWidth: 320, autoPanPadding: [30, 30] }})
+            L.marker([marker.lat, marker.lon], { icon })
+                .bindPopup(popupHtml, { maxWidth: 320, autoPanPadding: [30, 30] })
                 .addTo(clusters[marker.era] || map);
 
             bounds.extend([marker.lat, marker.lon]);
-        }});
+        });
 
-        map.fitBounds(bounds, {{ padding: [30, 30] }});
-        L.control.layers({{ 'OpenStreetMap': baseLayer }}, overlays, {{ collapsed: true, position: 'topright' }}).addTo(map);
+        if (bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [30, 30] });
+        } else {
+            map.setView([40.3913, -74.3891], 14);
+        }
+
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+        L.control.layers({ 'OpenStreetMap': baseLayer }, overlays, { collapsed: true, position: 'topright' }).addTo(map);
+
+        const legend = L.control({ position: 'bottomleft' });
+        legend.onAdd = () => {
+            const container = L.DomUtil.create('div', 'map-legend');
+            container.innerHTML = `
+                <div class="legend-card">
+                    <h4>Legend</h4>
+                    <ul>
+                        ${Object.values(eraStyles).map((style) => `
+                            <li>
+                                <span class="swatch" style="background:${style.color}"></span>
+                                ${style.display}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            L.DomEvent.disableClickPropagation(container);
+            return container;
+        };
+        legend.addTo(map);
     </script>
 </body>
 </html>
