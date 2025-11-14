@@ -55,6 +55,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+
+    <style>
+        /* Year tooltip styling - discreet and mobile-friendly */
+        .year-tooltip {
+            background-color: rgba(0, 0, 0, 0.75) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 2px 6px !important;
+            font-size: 11px !important;
+            font-weight: bold !important;
+            font-family: Arial, sans-serif !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+            white-space: nowrap !important;
+        }
+
+        .year-tooltip:before {
+            border-top-color: rgba(0, 0, 0, 0.75) !important;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 600px) {
+            .year-tooltip {
+                font-size: 10px !important;
+                padding: 2px 5px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -196,8 +224,12 @@
     
     
                 marker_67512a64176b670cfc375014ca7f34d7.setIcon(icon_8e03404cc98f509ec91239ccc2fac755);
-            
-    
+        marker_67512a64176b670cfc375014ca7f34d7.bindTooltip("1899", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_5f0008d8b35abb3c11dab22659d5ba14 = L.marker(
                 [40.37404720357879, -74.41629291824485],
                 {
@@ -234,8 +266,12 @@
     
     
                 marker_5f0008d8b35abb3c11dab22659d5ba14.setIcon(icon_d6439b1c9b396397980c7ae8e7362643);
-            
-    
+        marker_5f0008d8b35abb3c11dab22659d5ba14.bindTooltip("1700s", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_b18daa73221a4a58001f6aea788e8a02.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -284,8 +320,12 @@
     
     
                 marker_7730b72e9ee485fe5d149b6163d06164.setIcon(icon_5d3798e0822d9215823dd1c4e5d50fc9);
-            
-    
+        marker_7730b72e9ee485fe5d149b6163d06164.bindTooltip("1893", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_c5d03eba9bc9cb455dbec1609383116f = L.marker(
                 [40.38533844328248, -74.39040014355436],
                 {
@@ -322,8 +362,12 @@
     
     
                 marker_c5d03eba9bc9cb455dbec1609383116f.setIcon(icon_308c98e3d1d0b8f5a3b6cc07a8af55fa);
-            
-    
+        marker_c5d03eba9bc9cb455dbec1609383116f.bindTooltip("1869", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_0affa23ebc1ae58b9ed5f0249abc6b1c = L.marker(
                 [40.35452738643187, -74.4418346184206],
                 {
@@ -360,8 +404,12 @@
     
     
                 marker_0affa23ebc1ae58b9ed5f0249abc6b1c.setIcon(icon_782759b8f82f4dcb013c75d6ba8e0709);
-            
-    
+        marker_0affa23ebc1ae58b9ed5f0249abc6b1c.bindTooltip("1835", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_d5a7ef3e00faff8e181af50a4818cc2e = L.marker(
                 [40.37775887887239, -74.42493778094678],
                 {
@@ -398,8 +446,12 @@
     
     
                 marker_d5a7ef3e00faff8e181af50a4818cc2e.setIcon(icon_fa7594797d7c52742c32a55e4322f102);
-            
-    
+        marker_d5a7ef3e00faff8e181af50a4818cc2e.bindTooltip("1880", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_a5466bbddaab4943545e7a9b14e5b699 = L.marker(
                 [40.39327262044848, -74.38676971846652],
                 {
@@ -436,8 +488,12 @@
     
     
                 marker_a5466bbddaab4943545e7a9b14e5b699.setIcon(icon_14fc109999b006a69990da6a8dce4d04);
-            
-    
+        marker_a5466bbddaab4943545e7a9b14e5b699.bindTooltip("1821", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_9574c1741f1d6c492ac610f934bc84ae = L.marker(
                 [40.39069588735334, -74.39220009049912],
                 {
@@ -474,8 +530,12 @@
     
     
                 marker_9574c1741f1d6c492ac610f934bc84ae.setIcon(icon_b964802db7ad3d56971d80ca2bc435fe);
-            
-    
+        marker_9574c1741f1d6c492ac610f934bc84ae.bindTooltip("Circa 1875", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_9ed540887fde284cc7dc7ec16b3f1a5e = L.marker(
                 [40.391773299634096, -74.38930951482584],
                 {
@@ -512,8 +572,12 @@
     
     
                 marker_9ed540887fde284cc7dc7ec16b3f1a5e.setIcon(icon_a4b7eaa04a2c88ebc17a2e5509eb662a);
-            
-    
+        marker_9ed540887fde284cc7dc7ec16b3f1a5e.bindTooltip("1872", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_affdcc54c958c4cac606fba0c74dae4f.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -562,8 +626,12 @@
     
     
                 marker_88eaf1faf30cb8ca2bd3b78b0a96e4bd.setIcon(icon_8237fafb675210fdc19ae07f0b8a4732);
-            
-    
+        marker_88eaf1faf30cb8ca2bd3b78b0a96e4bd.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_5f3775cb3d8c0d14fec5abcf9ae8add2 = L.marker(
                 [40.385249232439946, -74.38854921936806],
                 {
@@ -600,8 +668,12 @@
     
     
                 marker_5f3775cb3d8c0d14fec5abcf9ae8add2.setIcon(icon_d491cf534fb2abce54a330919abe382a);
-            
-    
+        marker_5f3775cb3d8c0d14fec5abcf9ae8add2.bindTooltip("1900", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_926756a17f6a70ffb3b10a82139bbffa = L.marker(
                 [40.3741229106213, -74.42815593006208],
                 {
@@ -638,8 +710,12 @@
     
     
                 marker_926756a17f6a70ffb3b10a82139bbffa.setIcon(icon_bd3c827ae516c4903c295dd784a93425);
-            
-    
+        marker_926756a17f6a70ffb3b10a82139bbffa.bindTooltip("1907", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_abf1a50b23b611338816b94a5781147f = L.marker(
                 [40.39402914768797, -74.38645461845664],
                 {
@@ -676,8 +752,12 @@
     
     
                 marker_abf1a50b23b611338816b94a5781147f.setIcon(icon_9560e8bc46aef4ce58522cd9ad26027c);
-            
-    
+        marker_abf1a50b23b611338816b94a5781147f.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_2ecc48f50c1aa00e498b481e76c28680 = L.marker(
                 [40.37959501397669, -74.40771826802995],
                 {
@@ -714,8 +794,12 @@
     
     
                 marker_2ecc48f50c1aa00e498b481e76c28680.setIcon(icon_140b5ba9523d776b42df0028bf7ae416);
-            
-    
+        marker_2ecc48f50c1aa00e498b481e76c28680.bindTooltip("1906", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_9711a6a19c0936f006d522c7d1a6c907 = L.marker(
                 [40.35616867884141, -74.44309178323445],
                 {
@@ -752,8 +836,12 @@
     
     
                 marker_9711a6a19c0936f006d522c7d1a6c907.setIcon(icon_7c42d68605e27df34920c2c4c5030e8e);
-            
-    
+        marker_9711a6a19c0936f006d522c7d1a6c907.bindTooltip("1900", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_c86c382129bb401df8e0bf64a908425b = L.marker(
                 [40.38664472038314, -74.39896231749604],
                 {
@@ -790,8 +878,12 @@
     
     
                 marker_c86c382129bb401df8e0bf64a908425b.setIcon(icon_2a372e5d1823942aa834d39a6413ff8e);
-            
-    
+        marker_c86c382129bb401df8e0bf64a908425b.bindTooltip("1955", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_1f1ec4debf45290ffc01b5418edbcfe4 = L.marker(
                 [40.38718583361005, -74.39795347164319],
                 {
@@ -828,8 +920,12 @@
     
     
                 marker_1f1ec4debf45290ffc01b5418edbcfe4.setIcon(icon_b6876165fa1bace4c612bf66b058fc6d);
-            
-    
+        marker_1f1ec4debf45290ffc01b5418edbcfe4.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_448b746a768ec7263533fbd45f4c662e = L.marker(
                 [40.38408589764912, -74.39010246063746],
                 {
@@ -866,8 +962,12 @@
     
     
                 marker_448b746a768ec7263533fbd45f4c662e.setIcon(icon_86fff9a94aad728d9d2185ecaa6de3e3);
-            
-    
+        marker_448b746a768ec7263533fbd45f4c662e.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_08d70ff68c609b72f93d88cb1c48059d = L.marker(
                 [40.407325932962934, -74.37493078837302],
                 {
@@ -904,8 +1004,12 @@
     
     
                 marker_08d70ff68c609b72f93d88cb1c48059d.setIcon(icon_cafde19b72d006bbe06dee74c21c2f7b);
-            
-    
+        marker_08d70ff68c609b72f93d88cb1c48059d.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_3f6837e264edd602ad2aba5fe2848045 = L.marker(
                 [40.39329121141645, -74.38776959315489],
                 {
@@ -942,8 +1046,12 @@
     
     
                 marker_3f6837e264edd602ad2aba5fe2848045.setIcon(icon_5e453c6b8dd0c72de4984662aca9969c);
-            
-    
+        marker_3f6837e264edd602ad2aba5fe2848045.bindTooltip("1905", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_0c8ed09fad337c652a0e7637e732e603.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -992,8 +1100,12 @@
     
     
                 marker_7697a37e7f44e8436aeb8072d91d90bd.setIcon(icon_29c1a0153a698352f2dcd86810473dcc);
-            
-    
+        marker_7697a37e7f44e8436aeb8072d91d90bd.bindTooltip("1910", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_534e0451d07bcbd023c26de1f3c95d94 = L.marker(
                 [40.38906129788272, -74.3870385015316],
                 {
@@ -1030,8 +1142,12 @@
     
     
                 marker_534e0451d07bcbd023c26de1f3c95d94.setIcon(icon_eef427fc2097c4c4ec12da09a647372a);
-            
-    
+        marker_534e0451d07bcbd023c26de1f3c95d94.bindTooltip("1910", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_f04063a6ef822970b77aaab1cb1b8724 = L.marker(
                 [40.396603154880175, -74.38420067197023],
                 {
@@ -1068,8 +1184,12 @@
     
     
                 marker_f04063a6ef822970b77aaab1cb1b8724.setIcon(icon_c2fe9681b512dc6a2fcb02f4536667b9);
-            
-    
+        marker_f04063a6ef822970b77aaab1cb1b8724.bindTooltip("1918", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_63b96ca5d89e9dee8559ef8b78ea0bbb.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -1118,8 +1238,12 @@
     
     
                 marker_647a9738b7fbddefa300954de1d5cd43.setIcon(icon_56f40546454e48275d79609601acabc2);
-            
-    
+        marker_647a9738b7fbddefa300954de1d5cd43.bindTooltip("1926", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_44b8a3d3c7b3e0e520179d3008db0a36 = L.marker(
                 [40.38573789455148, -74.3834434656437],
                 {
@@ -1156,8 +1280,12 @@
     
     
                 marker_44b8a3d3c7b3e0e520179d3008db0a36.setIcon(icon_2558b22478adcc70e500b06b3dd03125);
-            
-    
+        marker_44b8a3d3c7b3e0e520179d3008db0a36.bindTooltip("1926", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_472f43e7ae1bc5d8649e19b9612e21fe = L.marker(
                 [40.38948683884871, -74.38836835144457],
                 {
@@ -1194,8 +1322,12 @@
     
     
                 marker_472f43e7ae1bc5d8649e19b9612e21fe.setIcon(icon_ba633ed78c9e497dbca37aafe72c8692);
-            
-    
+        marker_472f43e7ae1bc5d8649e19b9612e21fe.bindTooltip("1929", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_995bb4e547dd84a1da1c4314bd73bdf8 = L.marker(
                 [40.39246682175453, -74.38909948774666],
                 {
@@ -1232,8 +1364,12 @@
     
     
                 marker_995bb4e547dd84a1da1c4314bd73bdf8.setIcon(icon_9846988f81a48d17cbaa41a12557a502);
-            
-    
+        marker_995bb4e547dd84a1da1c4314bd73bdf8.bindTooltip("1920", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_ee1fe98b03f0e8a396abe02229e23c90 = L.marker(
                 [40.38807651064285, -74.39333229613035],
                 {
@@ -1270,8 +1406,12 @@
     
     
                 marker_ee1fe98b03f0e8a396abe02229e23c90.setIcon(icon_80e78b086286bc9f80b0701141dbbb4d);
-            
-    
+        marker_ee1fe98b03f0e8a396abe02229e23c90.bindTooltip("1928", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_d3303046ae8c3dbb2f1c186078d831bf = L.marker(
                 [40.38815669703339, -74.39344696056672],
                 {
@@ -1308,8 +1448,12 @@
     
     
                 marker_d3303046ae8c3dbb2f1c186078d831bf.setIcon(icon_b4e1c9b63ec4587cc52a26b326be9ae3);
-            
-    
+        marker_d3303046ae8c3dbb2f1c186078d831bf.bindTooltip("1928", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_49342d2021f495a9f45c3d8f5c590e6e = L.marker(
                 [40.388278764033096, -74.39351535689677],
                 {
@@ -1346,8 +1490,12 @@
     
     
                 marker_49342d2021f495a9f45c3d8f5c590e6e.setIcon(icon_53c511064d5a085de650b9d3a3dd2722);
-            
-    
+        marker_49342d2021f495a9f45c3d8f5c590e6e.bindTooltip("1928", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_0ad3b358f5aea0f974ef54a904d19e81.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -1396,8 +1544,12 @@
     
     
                 marker_9b62830a0bd0393fe1bfe2e5456aa070.setIcon(icon_53aec63fa56ef4ef1994c1276b6b513c);
-            
-    
+        marker_9b62830a0bd0393fe1bfe2e5456aa070.bindTooltip("1938", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_385b101b91668a4bec046cd6dfa926f8 = L.marker(
                 [40.393361065518725, -74.38765823096863],
                 {
@@ -1434,8 +1586,12 @@
     
     
                 marker_385b101b91668a4bec046cd6dfa926f8.setIcon(icon_5c0406c3477f54df786ee92bf16c5325);
-            
-    
+        marker_385b101b91668a4bec046cd6dfa926f8.bindTooltip("1930", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_c5f7c6e7618def93b9e639c637b1ae1d.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -1484,8 +1640,12 @@
     
     
                 marker_2cc1c2bc9d1a08cda9005a8169ab9a96.setIcon(icon_5466328efac4ce83d9163242a5ebf1f6);
-            
-    
+        marker_2cc1c2bc9d1a08cda9005a8169ab9a96.bindTooltip("Circa 1945", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_dda548acd5b9bc4df17c40187e956e4e = L.marker(
                 [40.40076624942257, -74.38094939227055],
                 {
@@ -1522,8 +1682,12 @@
     
     
                 marker_dda548acd5b9bc4df17c40187e956e4e.setIcon(icon_d3450983a4ef77ae633180526009aba8);
-            
-    
+        marker_dda548acd5b9bc4df17c40187e956e4e.bindTooltip("1945", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_f6ac047e03e50f9f06e7b188734056ac.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
@@ -1572,8 +1736,12 @@
     
     
                 marker_34be29117e7225b806e5d660d7ce3c14.setIcon(icon_6d8d2687439a603dee795195f564b0f2);
-            
-    
+        marker_34be29117e7225b806e5d660d7ce3c14.bindTooltip("1955", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_ccfc696a507f4d9a0f09d30403dd34e1 = L.marker(
                 [40.38934397177625, -74.38810031732679],
                 {
@@ -1610,8 +1778,12 @@
     
     
                 marker_ccfc696a507f4d9a0f09d30403dd34e1.setIcon(icon_94af7ff8c78a4e1d3782fd938d9a2586);
-            
-    
+        marker_ccfc696a507f4d9a0f09d30403dd34e1.bindTooltip("1954", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_7dee051ec4f0e34c175c1202906228bc = L.marker(
                 [40.38920998245602, -74.38787572498619],
                 {
@@ -1648,8 +1820,12 @@
     
     
                 marker_7dee051ec4f0e34c175c1202906228bc.setIcon(icon_ffdca11bcec429c6f1295fd3bd5ead7d);
-            
-    
+        marker_7dee051ec4f0e34c175c1202906228bc.bindTooltip("1953", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             var marker_2f2c2f5040fc8880278d1f5de321a213 = L.marker(
                 [40.38906407823472, -74.38763267439222],
                 {
@@ -1686,8 +1862,12 @@
     
     
                 marker_2f2c2f5040fc8880278d1f5de321a213.setIcon(icon_fccbf3baacedca3ca7bf58ad087ff4f1);
-            
-    
+        marker_2f2c2f5040fc8880278d1f5de321a213.bindTooltip("1955", {
+            permanent: true,
+            direction: 'top',
+            className: 'year-tooltip',
+            offset: [0, -10]
+        });
             marker_cluster_a2741ceacf43c3f95e317bd3fc666206.addTo(map_ad40c6585fe6e3ab95307164823013c5);
         
     
